@@ -768,25 +768,27 @@ print("Bot: Ask me about rooms, prices, facilities, locations,")
 print("     check-in or cancellation.")
 print("Bot: Type 'bye' to end the conversation.\n")
 
-current_city = None
-current_room = None
+if __name__ == "__main__":
 
-while True:
+    current_city = None
+    current_room = None
 
-    user_message = input("You: ").strip()
+    while True:
 
-    if user_message == "":
-        print("Bot: Please enter your question.\n")
-        continue
+        user_message = input("You: ").strip()
 
-    response, current_city, current_room = chatbot_response(
-        user_message,
-        current_city,
-        current_room
-    )
+        if user_message == "":
+            print("Bot: Please enter your question.\n")
+            continue
 
-    print("\nBot:", response)
-    print()
+        response, current_city, current_room = chatbot_response(
+            user_message,
+            current_city,
+            current_room
+        )
 
-    if detect_intent(user_message) == "EXIT":
-        break
+        print("\nBot:", response)
+        print()
+
+        if detect_intent(user_message) == "EXIT":
+            break
